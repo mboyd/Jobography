@@ -77,6 +77,14 @@ function showResults(q, l) {
 
 window.onload = function() {
   
+  if (!(window.history && window.history.pushState)) {
+    window.history = {};
+    window.history.pushState = function(state, title, url) {
+      return null;
+    };
+    history = window.history;
+  }
+  
   var home = $('iframe#home').contents().get(0);
   var map = $('iframe#map').contents().get(0);
   document.title = home.title;
