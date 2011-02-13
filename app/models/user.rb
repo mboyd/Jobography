@@ -61,7 +61,6 @@ class User < ActiveRecord::Base
     
     self.save
   end
-  handle_asynchronously :import_facebook_data
   
   def retrieve_contact(contact_facebook_id)
     path = "/#{contact_facebook_id}?fields=id,name,location,work&" +
